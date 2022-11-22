@@ -34,11 +34,21 @@ def main():
 	'''
 
 	config = get_config()
-	print (config)
 	
+	# get mattermost setting
+	mm_config = config["mattermost"]
+	mm_webhook_url = mm_config["webhook_url"]
+
+	headers = {"Content-type": "application/json"}
+
+	data = {
+		"text": "This is test post"
+	}
+
+	response = requests.post(mm_webhook_url, json=data, headers=headers)
+	print("Status code: {0} {1}".format(response.status_code, response.reason))
 
 	return 0
 
 if __name__ == "__main__":
-	print ("Hello world")
 	sys.exit(main())
