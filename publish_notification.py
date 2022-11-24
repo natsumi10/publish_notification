@@ -48,7 +48,8 @@ def main():
 	response = requests.post(mm_webhook_url, json=data, headers=headers)
 	print("Status code: {0} {1}".format(response.status_code, response.reason))
 
-	#post with publish_notification bot
+	
+
 
 	return 0
 
