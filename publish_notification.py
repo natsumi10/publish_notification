@@ -1,9 +1,10 @@
 import json
 import os
 import sys
+import yaml
 
 import requests
-from flask import Flask, request
+#from flask import Flask, request
 
 
 def base_dir():
@@ -18,7 +19,7 @@ def config_path():
 
 	:rtype: str
 	'''
-	return os.path.join(base_dir(), "config", "config.json")
+	return os.path.join(base_dir(), "config", "config.yml")
 
 def get_config():
 	''' get the data in config.json and return it as config
@@ -26,7 +27,9 @@ def get_config():
 	'''
 
 	with open(config_path(), "r") as fp:
-		config = json.load(fp)
+		yml_obj = yaml.safe_load(fp)
+		config = json.dumps(yml_obj, indent=2)
+	print(config)
 	return config
 
 def main():
@@ -36,7 +39,7 @@ def main():
 	'''
 
 	config = get_config()
-	
+	'''
 	# get mattermost setting
 	mm_config = config["mattermost"]
 	mm_webhook_url = mm_config["webhook_url"]
@@ -49,7 +52,7 @@ def main():
 
 	response = requests.post(mm_webhook_url, json=data, headers=headers)
 	print("Status code: {0} {1}".format(response.status_code, response.reason))
-
+	'''
 	
 
 

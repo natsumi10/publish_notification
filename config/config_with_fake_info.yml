@@ -1,0 +1,12 @@
+# This is config file. Read as json in python file.
+# This is fake config file to avoid expose personal information. 
+
+# Change the name as config.yml
+# Set your mattermost information here.
+
+
+{
+  "mattermost": {
+    "webhook_url": "http://localhost:8065/hooks/1pjm48jmetbejctfhhbuadk7iw"
+  }
+}
