@@ -3,6 +3,8 @@ import os
 import sys
 
 import requests
+from flask import Flask, request
+
 
 def base_dir():
 	''' Return the path of given file name
