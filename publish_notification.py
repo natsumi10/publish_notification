@@ -23,13 +23,11 @@ def config_path():
 
 def get_config():
 	''' get the data in config.json and return it as config
-	:rtype: str
+	:rtype: dict
 	'''
 
 	with open(config_path(), "r") as fp:
-		yml_obj = yaml.safe_load(fp)
-		config = json.dumps(yml_obj, indent=2)
-	print(config)
+		config = yaml.safe_load(fp)
 	return config
 
 def main():
@@ -39,17 +37,49 @@ def main():
 	'''
 
 	config = get_config()
-	'''
+	
+
 	# get mattermost setting
 	mm_config = config["mattermost"]
-	mm_webhook_url = mm_config["webhook_url"]
 
+	mm_api_url = mm_config["mm_api_url"]
+	bot_token = mm_config["bot_token"]
+	channel_id = mm_config["channel_id"]
+	
+	#mm_webhook_url = mm_config["webhook_url"]
+
+
+
+	headers = {
+		'Content-type': 'application/json',
+		'Authorization': 'Bearer ' + bot_token,
+	}
+
+	data = {
+		"channel_id": channel_id,
+		"message": "This is a message from a bot",
+		"username": "publish_notification",
+
+	}
+	
+
+	'''
 	headers = {"Content-type": "application/json"}
 
 	data = {
 		"text": "This is test post"
 	}
+	'''
 
+
+	response = requests.post(
+		mm_api_url,
+		headers = headers,
+		json = data
+	)
+	
+
+	'''
 	response = requests.post(mm_webhook_url, json=data, headers=headers)
 	print("Status code: {0} {1}".format(response.status_code, response.reason))
 	'''

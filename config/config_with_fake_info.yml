@@ -4,9 +4,11 @@
 # Change the name as config.yml
 # Set your mattermost information here.
 
-
 {
   "mattermost": {
-    "webhook_url": "http://localhost:8065/hooks/1pjm48jmetbejctfhhbuadk7iw"
+    "webhook_url": "URL_OF_WEBHOOK",
+    "bot_token": "BOT_TOKEN",
+    "channel_id" : "CHANNEL_ID",
+    "mm_api_url" : "URL_OF_YOUR_MATTERMOST/api/v4/posts"
   }
 }
