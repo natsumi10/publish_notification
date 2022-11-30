@@ -4,7 +4,7 @@ import sys
 import yaml
 
 import requests
-#from flask import Flask, request
+from flask import Flask, request
 
 
 def base_dir():
@@ -79,6 +79,22 @@ def post_w_bot(mm_config):
 
 	return 0
 
+def post_mattermost(config):
+	'''post message via webhook
+	:rtype: int
+	'''
+	# get mattermost setting
+	mm_config = config["mattermost"]
+	
+	'''
+	#post via webhook
+	post_w_webhook(mm_config)
+	
+	# post via publish notification bot
+	post_w_bot(mm_config)
+	'''
+	return 0
+
 def main():
 	''' main function 
 
@@ -86,25 +102,11 @@ def main():
 	'''
 
 	config = get_config()
-	
-
-	# get mattermost setting
-	mm_config = config["mattermost"]
-
-
-	'''
-	#post via webhook
-	post_w_webhook(mm_config)
-	'''
-
-	'''
-	# post via publish notification bot
-	post_w_bot(mm_config)
-
-	'''
+	post_mattermost(config)
 	
 	
-	
+
+
 	return 0
 
 if __name__ == "__main__":
