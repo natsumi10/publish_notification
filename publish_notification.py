@@ -79,13 +79,14 @@ def post_w_bot(mm_config):
 
 	return 0
 
-def post_mattermost(config):
+def post_mattermost():
 	'''post message via webhook
 	:rtype: int
 	'''
 	# get mattermost setting
+	config = get_config()
 	mm_config = config["mattermost"]
-	
+
 	'''
 	#post via webhook
 	post_w_webhook(mm_config)
@@ -100,11 +101,9 @@ def main():
 
 	:rtype: int
 	'''
-
-	config = get_config()
-	post_mattermost(config)
+	#post_mattermost()
 	
-	
+	# Flask test
 
 
 	return 0
