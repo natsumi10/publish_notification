@@ -1,4 +1,7 @@
 #!/usr/bin/env python
+
+#Init file for Mattermost BOT for Publish notification 
+
 import json
 import os
 import sys
