@@ -8,7 +8,6 @@ import sys
 import yaml
 
 import requests
-from flask import Flask, request
 
 
 def base_dir():
@@ -83,12 +82,11 @@ def post_w_bot(mm_config):
 
 	return 0
 
-def post_mattermost():
+def post_mattermost(config):
 	'''post message via webhook
 	:rtype: int
 	'''
-	# get mattermost setting
-	config = get_config()
+	
 	mm_config = config["mattermost"]
 
 	'''
@@ -105,10 +103,11 @@ def main():
 
 	:rtype: int
 	'''
-	#post_mattermost()
+	# get mattermost setting
+	config = get_config()
+	post_mattermost(config)
 	
-	# Flask test
-
+	
 
 	return 0
 
