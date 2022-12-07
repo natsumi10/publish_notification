@@ -6,9 +6,7 @@ import json
 import os
 import sys
 import yaml
-
 import requests
-
 
 def base_dir():
 	''' Return the path of given file name
@@ -89,13 +87,13 @@ def post_mattermost(config):
 	
 	mm_config = config["mattermost"]
 
-	'''
+	
 	#post via webhook
 	post_w_webhook(mm_config)
 	
 	# post via publish notification bot
 	post_w_bot(mm_config)
-	'''
+	
 	return 0
 
 def main():
