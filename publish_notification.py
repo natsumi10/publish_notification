@@ -52,30 +52,6 @@ def post_w_webhook(m_bot):
 
 	return 0
 
-def post_w_bot(m_bot):
-	'''post message via webhook
-	:rtype: int
-	'''
-
-	headers = {
-		'Content-type': 'application/json',
-		'Authorization': 'Bearer ' + m_bot.bot_token,
-	}
-
-	data = {
-		"channel_id": m_bot.channel_id,
-		"message": "This is a message from a bot",
-		"username": "publish_notification",
-	}
-	
-	response = requests.post(
-		m_bot.api_url,
-		headers = headers,
-		json = data
-	)
-
-	return 0
-
 def post_mattermost(m_bot):
 	'''post message via webhook
 	:rtype: int
@@ -84,8 +60,6 @@ def post_mattermost(m_bot):
 	#post via webhook
 	post_w_webhook(m_bot)
 	
-	# post via publish notification bot
-	post_w_bot(m_bot)
 	
 	return 0
 
