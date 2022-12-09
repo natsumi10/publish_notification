@@ -33,7 +33,6 @@ def get_config():
 		config = yaml.safe_load(fp)
 	return config
 
-
 def main():
 	''' main function 
 
@@ -43,9 +42,17 @@ def main():
 	config = get_config()
 
 	m_bot = MmBot(config)
-	#m_bot.post()
-	#m_bot.postWebhook()
 	
+	# set message to post
+	message = "This is test!"
+	m_bot.set_message(message)
+
+
+	"""
+	m_bot.post()
+	m_bot.postWebhook()
+	"""
+
 	return 0
 
 if __name__ == "__main__":
