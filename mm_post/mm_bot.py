@@ -28,3 +28,12 @@ class MmBot:
 			headers = headers,
 			json = data
 		)
+
+	def postWebhook(self):
+		headers = {"Content-type": "application/json"}
+
+		data = {
+			"text": "This is test post"
+		}
+		response = requests.post(self.webhook_url, json=data, headers=headers)
+		print("Status code: {0} {1}".format(response.status_code, response.reason))
