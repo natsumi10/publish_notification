@@ -7,7 +7,11 @@ import os
 import sys
 import yaml
 import requests
+
+from shotgun_api3 import Shotgun
+
 from mm_post.mm_bot import MmBot
+
 
 def base_dir():
 	''' Return the path of given file name
