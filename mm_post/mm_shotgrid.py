@@ -1,7 +1,5 @@
 #mm_shotgrid.py
 
-
-
 class MmShotgrid:
 	""" Base Bot class to post Mattermost.
 	"""

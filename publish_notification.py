@@ -10,6 +10,7 @@ import requests
 from shotgun_api3 import Shotgun
 
 from mm_post.mm_bot import MmBot
+from mm_post.mm_shotgrid import MmShotgrid
 
 class IdentityError(Exception):
 	pass
@@ -38,6 +39,26 @@ def get_config():
 		config = yaml.safe_load(fp)
 	return config
 
+def post_mattermost(config):
+	''' post to mattermost
+
+	:rtype: int
+	'''
+	m_bot = MmBot(config)
+	
+	# set message to post
+	message = "This is test!"
+	m_bot.set_message(message)
+	
+	# post via publish notification bot
+	m_bot.post()
+	
+	"""
+	# post via incomming webhook
+	m_bot.postWebhook()
+	"""
+	return 0
+
 def main():
 	''' main function 
 
@@ -45,19 +66,11 @@ def main():
 	'''
 	# get mattermost setting
 	config = get_config()
-
-	m_bot = MmBot(config)
-	
-	# set message to post
-	message = "This is test!"
-	m_bot.set_message(message)
-
+	m_sg = MmShotgrid(config)
 
 	"""
-	m_bot.post()
-	m_bot.postWebhook()
+	post_mattermost(config)
 	"""
-
 	return 0
 
 if __name__ == "__main__":

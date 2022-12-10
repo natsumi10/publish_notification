@@ -10,7 +10,7 @@
     "bot_token": "BOT_TOKEN",
     "channel_id" : "CHANNEL_ID",
     "mm_api_url" : "URL_OF_YOUR_MATTERMOST/api/v4/posts"
-  }
+  },
   "shotgrid": {
     "url" : "the url of shotgrid",
     "script_name" : "the script name",
