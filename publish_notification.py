@@ -85,11 +85,16 @@ def main():
 	# Create mattermost-shotgrid class
 	m_sg = MmShotgrid(config)
 	
-	
+	# get project id defined by project name
+	project = m_sg.get_project("Linux_TK_Test")
+	print (project)
+	print (type(project))
+
 	"""
 	# the method to post mattermost
 	post_mattermost(config)
 	"""
+
 	return 0
 
 if __name__ == "__main__":

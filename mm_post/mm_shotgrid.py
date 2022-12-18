@@ -15,7 +15,6 @@ class MmShotgrid:
 		self.sg = Shotgun(self.url, script_name=self.script_name, api_key=self.api_key)
 
 	def find_asset(self):
-		#self.sg = Shotgun(self.url, script_name=self.script_name, api_key=self.api_key)
 		fields = ['id', 'code', 'sg_asset_type']
 		filters = [
 			['project', 'is', {'type': 'Project', 'id': int(self.project_id) } ],
@@ -24,3 +23,12 @@ class MmShotgrid:
 		asset_all = self.sg.find("Asset",filters,fields)
 		
 		return asset_all
+
+	def get_project(self,project_name):
+		"""Return the Project info. 
+		The project is defined from the project name.
+
+		:rtype: dict
+		"""
+		return self.sg.find_one('Project',[['name', 'is',str(project_name)]])
+		
