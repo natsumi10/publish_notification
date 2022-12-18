@@ -68,6 +68,9 @@ def main():
 	config = get_config()
 	m_sg = MmShotgrid(config)
 
+	# get shotgun instance
+	shotgun = Shotgun(m_sg.url, script_name=m_sg.script_name, api_key=m_sg.api_key)
+	
 	"""
 	post_mattermost(config)
 	"""
