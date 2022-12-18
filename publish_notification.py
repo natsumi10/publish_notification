@@ -67,7 +67,7 @@ def main():
 	# get mattermost setting
 	config = get_config()
 	m_sg = MmShotgrid(config)
-
+	"""
 	# get shotgun instance
 	sg = Shotgun(m_sg.url, script_name=m_sg.script_name, api_key=m_sg.api_key)
 	fields = ['id', 'code', 'sg_asset_type']
@@ -77,7 +77,9 @@ def main():
 	]
 	asset_all = sg.find("Asset",filters,fields)
 	print (asset_all)
-
+	"""
+	asset_list = m_sg.find_asset()
+	print (asset_list)
 	
 	"""
 	post_mattermost(config)
