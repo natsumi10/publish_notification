@@ -3,6 +3,7 @@ from shotgun_api3 import Shotgun
 
 class MmShotgrid:
 	""" Base Bot class to post Mattermost.
+		The Project ID should be listed in config.yml
 	"""
 	def __init__(self,config):
 		sg_config = config["shotgrid"]

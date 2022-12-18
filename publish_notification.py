@@ -59,22 +59,35 @@ def post_mattermost(config):
 	"""
 	return 0
 
+def shotgrid_test(config):
+	''' collect each shotgrid test function call 
+
+	:rtype: int
+	'''
+
+	"""
+	#Create mattermost-shotgrid class
+	m_sg = MmShotgrid(config)
+	# the function for getting asset list
+	asset_list = m_sg.find_asset()
+	print (asset_list)
+	"""
+	return 0
+
 def main():
 	''' main function 
 
 	:rtype: int
 	'''
-	# get mattermost setting from yml file
+	# get mattermost and shotgrid config from yml file
 	config = get_config()
 
-	# Get mattermost shotgrid class
+	# Create mattermost-shotgrid class
 	m_sg = MmShotgrid(config)
 	
-	# get asset list
-	asset_list = m_sg.find_asset()
-	print (asset_list)
 	
 	"""
+	# the method to post mattermost
 	post_mattermost(config)
 	"""
 	return 0
