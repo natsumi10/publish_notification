@@ -64,10 +64,13 @@ def main():
 
 	:rtype: int
 	'''
-	# get mattermost setting
+	# get mattermost setting from yml file
 	config = get_config()
+
+	# Get mattermost shotgrid class
 	m_sg = MmShotgrid(config)
 	
+	# get asset list
 	asset_list = m_sg.find_asset()
 	print (asset_list)
 	
