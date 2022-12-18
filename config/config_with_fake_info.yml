@@ -14,6 +14,8 @@
   "shotgrid": {
     "url" : "the url of shotgrid",
     "script_name" : "the script name",
-    "api_key" : "the api key"
+    "api_key" : "the api key",
+    "artist_name": "Artist name",
+    "project_id" : "ID number of project"
   }
 }

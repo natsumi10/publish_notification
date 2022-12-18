@@ -8,3 +8,5 @@ class MmShotgrid:
 		self.url = sg_config["url"]
 		self.script_name = sg_config["script_name"]
 		self.api_key = sg_config["api_key"]
+		self.user_name = sg_config["user_name"]
+		self.project_id = sg_config["project_id"]
