@@ -71,6 +71,10 @@ def shotgrid_test(config):
 	# the function for getting asset list
 	asset_list = m_sg.find_asset()
 	print (asset_list)
+
+	# get project id defined by project name
+	project = m_sg.get_project("Linux_TK_Test")
+	print (project["id"])
 	"""
 	return 0
 
@@ -84,11 +88,14 @@ def main():
 
 	# Create mattermost-shotgrid class
 	m_sg = MmShotgrid(config)
-	
-	# get project id defined by project name
-	project = m_sg.get_project("Linux_TK_Test")
-	print (project)
-	print (type(project))
+	sg = Shotgun(m_sg.url, script_name=m_sg.script_name, api_key=m_sg.api_key)
+	fields = ['id','task_assignees']
+	filters = [
+		['project', 'is', {'type': 'Project', 'id': int(m_sg.project_id) } ],
+		["task_assignees", "is_not", None]
+	]
+	task = sg.find("Task",filters,fields)
+	print (task)
 
 	"""
 	# the method to post mattermost

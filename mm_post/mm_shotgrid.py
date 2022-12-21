@@ -25,7 +25,7 @@ class MmShotgrid:
 		return asset_all
 
 	def get_project(self,project_name):
-		"""Return the Project info. 
+		"""Return the Project info including project id. 
 		The project is defined from the project name.
 
 		:rtype: dict
