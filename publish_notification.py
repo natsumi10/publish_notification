@@ -64,10 +64,11 @@ def shotgrid_test(config):
 
 	:rtype: int
 	'''
+	m_sg = MmShotgrid(config)
 
 	"""
 	#Create mattermost-shotgrid class
-	m_sg = MmShotgrid(config)
+	
 	# the function for getting asset list
 	asset_list = m_sg.find_asset()
 	print (asset_list)
@@ -77,8 +78,9 @@ def shotgrid_test(config):
 	print (project["id"])
 	
 	# get all tasks assiged the artist
-	task = m_sg.find_task_by_name(artist_name=m_sg.user_name,project_name=m_sg.project_name)
-	print (task)
+	tasks = m_sg.find_task_by_name(artist_name=m_sg.user_name,project_name=m_sg.project_name)
+	for task in tasks :
+		print (task["entity"],end="\n")
 	"""
 	return 0
 
@@ -91,8 +93,8 @@ def main():
 	config = get_config()
 
 	# Create mattermost-shotgrid class
-	m_sg = MmShotgrid(config)
-	
+	#m_sg = MmShotgrid(config)
+	shotgrid_test(config)
 	
 	"""
 	# the method to post mattermost

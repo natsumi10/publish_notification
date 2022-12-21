@@ -35,13 +35,13 @@ class MmShotgrid:
 
 	def find_task_by_name(self, artist_name, project_name):
 		"""Return all tasks filtered by name. The list includes task id and entity.
-
+		The entity data has task's id, name, and type (for example Asset or Shot).
 		:rtype: list
 		"""
 		
 		#get the project id
 		project = self.get_project(project_name)
-
+		
 		fields = ['id', 'entity']
 		filters = [
 			['project', 'is', {'type': 'Project', 'id': int(project["id"]) } ],
@@ -49,5 +49,5 @@ class MmShotgrid:
 		]
 		tasks = self.sg.find("Task",filters,fields)
 		
-		#print (tasks[0]["entity"],end="\n")
+		
 		return tasks
