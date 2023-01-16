@@ -15,22 +15,26 @@ from mm_post.mm_shotgrid import MmShotgrid
 class IdentityError(Exception):
 	pass
 
+
 def base_dir():
-	''' Return the path of given file name
+	''' 
+	Return the path of given file name
 
 	:rtype: str
 	'''
 	return os.path.dirname(os.path.abspath(__file__))
 
 def config_path():
-	'''return the file path of config.json.
+	'''
+	Return the file path of config.json.
 
 	:rtype: str
 	'''
 	return os.path.join(base_dir(), "config", "config.yml")
 
 def get_config():
-	''' read the data from config.yml and return it as dictionary
+	'''
+	Read the data from config.yml and return it as dictionary
 
 	:rtype: dict
 	'''
@@ -40,7 +44,8 @@ def get_config():
 	return config
 
 def post_mattermost(config):
-	''' post to mattermost
+	''' 
+	Post to mattermost
 
 	:rtype: int
 	'''
@@ -54,13 +59,14 @@ def post_mattermost(config):
 	m_bot.post()
 	
 	"""
-	# post via incomming webhook
+	# Post via incomming webhook
 	m_bot.postWebhook()
 	"""
 	return 0
 
 def shotgrid_test(config):
-	''' collect each shotgrid test function call 
+	''' 
+	Collect each shotgrid test function call 
 
 	:rtype: int
 	'''
@@ -76,16 +82,18 @@ def shotgrid_test(config):
 	# get project id defined by project name
 	project = m_sg.get_project("Linux_TK_Test")
 	print (project["id"])
-	
+	"""
 	# get all tasks assiged the artist
 	tasks = m_sg.find_task_by_name(artist_name=m_sg.user_name,project_name=m_sg.project_name)
 	for task in tasks :
 		print (task["entity"],end="\n")
-	"""
+	
+	
 	return 0
 
 def main():
-	''' main function 
+	''' 
+	Main function 
 
 	:rtype: int
 	'''

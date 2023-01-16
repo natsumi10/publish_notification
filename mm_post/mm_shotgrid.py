@@ -2,8 +2,9 @@
 from shotgun_api3 import Shotgun
 
 class MmShotgrid:
-	""" Base Bot class to post Mattermost.
-		The Project ID should be listed in config.yml
+	""" 
+	Base Bot class to post Mattermost.
+	The Project ID should be listed in config.yml
 	"""
 	def __init__(self,config):
 		sg_config = config["shotgrid"]
@@ -26,7 +27,8 @@ class MmShotgrid:
 		return asset_all
 
 	def get_project(self,project_name):
-		"""Return the Project info including project id. 
+		"""
+		Return the Project info including project id. 
 		The project is defined from the project name.
 
 		:rtype: dict
@@ -34,7 +36,8 @@ class MmShotgrid:
 		return self.sg.find_one('Project',[['name', 'is',str(project_name)]])
 
 	def find_task_by_name(self, artist_name, project_name):
-		"""Return all tasks filtered by name. The list includes task id and entity.
+		"""
+		Return all tasks filtered by name. The list includes task id and entity.
 		The entity data has task's id, name, and type (for example Asset or Shot).
 		:rtype: list
 		"""
@@ -48,6 +51,5 @@ class MmShotgrid:
 			["task_assignees", "name_is", artist_name]
 		]
 		tasks = self.sg.find("Task",filters,fields)
-		
 		
 		return tasks
